@@ -17,6 +17,12 @@ fib(N,S) :- N > 2,N1 is N-1,N2 is N-2,fib(N1,S1),fib(N2,S2),S is S1+S2.
 pair(N) :- (M is N mod 2,M == 0).
 impair(N) :- (M is N mod 2,M =\= 0).
 
+/*
+pair(0).
+impair(1).
+pair(N) :- N>0,M is N-1,impair(M).
+impair(N) :- N>1,M is N-1,pair(M).
+*/
 
 pgcd(X,0,X).
 pgcd(0,X,X).
