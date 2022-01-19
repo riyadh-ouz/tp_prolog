@@ -71,3 +71,8 @@ moinsder(L1,L2) :- dernier(L1,X),concat(L,[X],L1),egale(L,L2).
 suppr_doublons([],[]).
 suppr_doublons([X|L],L1) :- element(X,L),suppr_doublons(L,L1).
 suppr_doublons([X|L],[X|L1]) :- (nonElement(X,L)),suppr_doublons(L,L1).
+
+prefix([],[_|_]).
+prefix([X|L1],[X|L2]) :- prefix(L1,L2).
+
+suffix(L1,L2) :- inverse(L1,L3),inverse(L2,L4),prefix(L3,L4).
