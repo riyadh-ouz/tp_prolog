@@ -7,6 +7,9 @@ Author: riyouz
 
 /* Les prédicats de manipulation des listes */
 
+liste([]).
+liste([_|_]).
+
 premier([X|_],X).
 rest([_|X],X).
 
@@ -28,6 +31,9 @@ sous_ensemble([X|Q],L2) :- element(X,L2),sous_ensemble(Q,L2).
 concat([],L2,L2).
 concat([X|L1],L2,[X|L]) :- concat(L1,L2,L).
 
+ajouter_fin(X,[],[X]).
+ajouter_fin(X,[Y|Z],[Y|T]) :- ajouter_fin(X,Z,T).
+
 inverse([],[]).
 inverse([X|L1],L2) :- inverse(L1,L3),concat(L3,[X],L2).
 
@@ -46,6 +52,15 @@ enlever(X,[Y|L],[Y|L2]) :- X \== Y,enlever(X,L,L2).
 
 tri_selection([],[]).
 tri_selection(L,[Min|L1]) :- min(L,Min),enlever(Min,L,L2),tri_selection(L2,L1).
+
+/* tri par insertion */
+insertion(X,[],[X]).
+insertion(X,[Y|L],[X,Y|L]) :- X =< Y.
+insertion(X,[Y|L],[Y|L1]) :- X > Y, insertion(X,L,L1).
+
+tri_insertion([],[]).
+tri_insertion([X|L],L1) :- tri_insertion(L,L2),insertion(X,L2,L1).
+
 
 nb_pairs([],0).
 nb_pairs([X|L],N) :- nb_pairs(L,N1),X mod 2 =:= 0,N is N1 + 1.
