@@ -25,19 +25,19 @@ dessert(fraises).
 
 % calories
 
-calories(artichauts, 150).
-calories(crevettes, 250).
-calories(oeufs, 200).
-calories(grillade-de-boeuf, 500).
-calories(poulet, 430).
-calories(loup, 250).
-calories(sole, 200).
-calories(glace, 300).
-calories(tarte, 400).
-calories(fraises, 250).
+calories(artichauts,150).
+calories(crevettes,250).
+calories(oeufs,200).
+calories(grillade_de_oeuf,500).
+calories(poulet,430).
+calories(loup,250).
+calories(sole,200).
+calories(glace,300).
+calories(tarte,400).
+calories(fraises,250).
 
 
-/* Les predicats (les règles, rules) */
+/* Les prédicats (les règles,rules) */
 
 % ; signifie 'ou' logique
 plat(X) :- viande(X);poisson(X).

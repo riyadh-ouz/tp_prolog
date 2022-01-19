@@ -35,7 +35,7 @@ mere(marie,bertrand).
 mere(marie,sophie).
 
 
-/* Les predicats (les règles, rules) */
+/* Les prédicats (les règles,rules) */
 
 parent(X,Y) :- pere(X,Y);mere(X,Y).
 
@@ -56,9 +56,9 @@ soeur(X,Y) :- femme(X),parent(Z,X),parent(Z,Y),(X\==Y).
 
 /* Interrogations
 
-?-homme(paul)
-?-femme(X) % Liste des femmes
-?-femme(_) % Est-ce qu'il y'a des femmes
+?-homme(paul).
+?-femme(X). % Liste des femmes
+?-femme(_). % Est-ce qu'il y'a des femmes
 ?-mere(germaine,jean).
 ?-mere(germaine,X). % Qui est la mere de jean
 ?-homme(X),pere(X). % Quels sont les hommes qui sont des peres
